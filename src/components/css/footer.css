@@ -1,0 +1,19 @@
+input:focus {
+  color: white;
+}
+li {
+  margin-bottom: 8px;
+}
+li a {
+  text-decoration: none;
+  color: darkgrey;
+  font-size: 13px;
+}
+li:hover a {
+  color: white;
+}
+@media (max-width: 576px) {
+  footer .list {
+    text-align: center;
+  }
+}

@@ -147,26 +147,49 @@ export default function Detail() {
   //Check xem id nhan vao dang la kieu du lieu nao
   let { id } = useParams();
   let products = data.find((product) => {
-
-    return (
-      product.id === Number(id)
-    )
+    return product.id === Number(id);
   });
 
   const { name, price, description, image } = products;
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-6">
-          <img src={image} alt="" />
+    <div className="row justify-content-around mt-2 m-2" id={id}>
+      <div className="col-lg-4 col-md-12 mt-5 mb-5">
+        <img className="w-100" src={image} alt="..." />
+      </div>
+      <div className="col-lg-6 col-md-12 mt-5 mb-5">
+        <h1 className="mb-3">{name}</h1>
+        <p className="mb-3">{description}</p>
+        <span
+          style={{ display: "block" }}
+          className="text-success fs-3 fst-italic"
+        >
+          Available size
+        </span>
+        <div className="d-flex flex-row justify-content-between align-items-start">
+          <button className="me-2 ps-3 pe-3 mt-3 btn">8</button>
+          <button className="me-2 ps-3 pe-3 mt-3 btn">8.5</button>
+          <button className="me-2 ps-3 pe-3 mt-3 btn">9</button>
+          <button className="me-2 ps-3 pe-3 mt-3 btn">9.5</button>
+          <button className="me-2 ps-3 pe-3 mt-3 btn">10</button>
+          <button className="me-2 ps-3 pe-3 mt-3 btn">10.5</button>
         </div>
-        <div className="col-6">
-          <h2>{name}</h2>
-          <p>{description}</p>
-          <p>{price}</p>
-          <Link to="/">BACK</Link>
-        </div>
+        <span
+          style={{ display: "block" }}
+          className="mt-3 mb-3 text-danger fw-bold fs-3"
+        >
+          {price}$
+        </span>
+        <button className="btn btn-dark fs-4 me-3 border border-dark">
+          Add to cart
+        </button>
+        <Link
+          style={{ textDecoration: "none" }}
+          className="btn btn-light fs-4 border border-dark"
+          to="/product"
+        >
+          Back
+        </Link>
       </div>
     </div>
   );

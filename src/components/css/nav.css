@@ -1,0 +1,17 @@
+.navbar{
+    margin: 30px;
+    padding: 10px;
+}
+.link{
+    text-decoration: none;
+    color: darkgrey;
+    padding: 8px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.link:hover{
+    color: white;
+    background-color: orangered;
+    border-radius: 10px;
+    transition: all linear 0.2s;
+}

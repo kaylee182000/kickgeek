@@ -153,6 +153,7 @@ export default function ProductList() {
 
   return (
     <div className="container">
+      <h2 className="text-center text-dark fst-italic m-5">FootWear</h2>
       <div className="row">{renderItem()}</div>
     </div>
   );

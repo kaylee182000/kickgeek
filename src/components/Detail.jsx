@@ -153,11 +153,12 @@ export default function Detail() {
   React.useEffect(() => {
     let promise = axios.get(url);
     promise.then((response) => {
+      console.log(response.data);
       setItem(response.data.content);
       setRelated(response.data.content.relatedProducts);
     });
     window.scrollTo(0, 350)
-  }, []);
+  }, [id]);
   let renderRelatedProduct = () => {
     return related.map((prod, index) => {
       return (
@@ -173,6 +174,7 @@ export default function Detail() {
       );
     });
   };
+  console.log(item.size);
   const { name, price, description, image, size } = item;
   return (
     <div className="container">
@@ -190,16 +192,9 @@ export default function Detail() {
             Available size
           </span>
           <div className="d-flex flex-row justify-content-between align-items-start">
-            {/* {size.map((num) => {
-            return <button className="me-2 ps-3 pe-3 mt-3 btn">{num}</button>;
-          })} */}
-            <button className="me-2 ps-3 pe-3 mt-3 btn">1</button>
-            <button className="me-2 ps-3 pe-3 mt-3 btn">1</button>
-            <button className="me-2 ps-3 pe-3 mt-3 btn">1</button>
-            <button className="me-2 ps-3 pe-3 mt-3 btn">1</button>
-            <button className="me-2 ps-3 pe-3 mt-3 btn">1</button>
-            <button className="me-2 ps-3 pe-3 mt-3 btn">1</button>
-            <button className="me-2 ps-3 pe-3 mt-3 btn">1</button>
+            {size?.map((num,index) => {
+            return <button key={index} className="me-2 ps-3 pe-3 mt-3 btn">{num}</button>;
+          })} 
           </div>
           <span
             style={{ display: "block" }}
